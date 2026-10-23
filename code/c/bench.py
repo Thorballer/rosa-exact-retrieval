@@ -1,20 +1,21 @@
 """Does C fix ROSA's speed?  Pure-Python SAM vs C SAM, same algorithm."""
-import ctypes, os, random, re, subprocess, time
+import ctypes, os, random, re, subprocess, sys, time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SO = os.path.join(HERE, "librosa_speed.dylib")
 subprocess.run(["clang", "-O3", "-march=native", "-shared", "-fPIC",
                 "-o", SO, os.path.join(HERE, "rosa.c")], check=True)
 lib = ctypes.CDLL(SO)
+MODE = 0  # recency mode: the mode bench.py's Python reference implements
 lib.build_src_c.argtypes = [ctypes.POINTER(ctypes.c_int32), ctypes.c_int,
-                            ctypes.POINTER(ctypes.c_int32)]
+                            ctypes.POINTER(ctypes.c_int32), ctypes.c_int]
 lib.build_src_c.restype = ctypes.c_int
 
 
 def build_src_c(x):
     n = len(x)
     arr = (ctypes.c_int32 * n)(*x); out = (ctypes.c_int32 * n)()
-    assert lib.build_src_c(arr, n, out) == 0
+    assert lib.build_src_c(arr, n, out, MODE) == 0
     return list(out)
 
 
@@ -53,8 +54,10 @@ def build_src_py(x):
 def data_shapes(n):
     rnd = random.Random(0)
     blk = list(range(28))
-    words = re.findall(r"\S+", open(os.path.expanduser("~/.hermes/CONTRIBUTING.md"),
-                                    encoding="utf-8", errors="ignore").read())
+    # same corpus convention as bench2.py: argv[1] / ROSA_CORPUS, else a local text file
+    src = (sys.argv[1] if len(sys.argv) > 1 else None) or os.environ.get("ROSA_CORPUS") \
+        or os.path.expanduser("~/.hermes/CONTRIBUTING.md")
+    words = re.findall(r"\S+", open(os.path.expanduser(src), encoding="utf-8", errors="ignore").read())
     vocab = {w: i for i, w in enumerate(sorted(set(words)))}
     ids = [vocab[w] for w in words]
     return {

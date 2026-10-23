@@ -19,7 +19,10 @@ Two harnesses throughout:
 
 Against a brute-force implementation of the stated definition, ROSA's output is **400/400
 identical** (`rosa-symbolic-vs-attention`, oracle check; the reference implementation's own stateful
-path also matched its `reference_rosa` on 280/280 positions).
+path also matched its `reference_rosa` on 280/280 positions). The C implementation used for the cost
+numbers is checked the same way — `code/c/check.py`, **58/58 cases identical in recency mode**, across
+alphabets of 1–1000 symbols, lengths 1–300, and constant-run / period-3 / period-28 / countdown /
+run-length inputs.
 
 Size measurements on 7,594 word tokens of prose:
 
@@ -37,25 +40,25 @@ regime-dependent.
 
 ## F2. The cost: one algorithmic cliff, and it is the case you care about
 
-`code/c/rosa.c`, word-level prose, single machine, verified identical to the Python reference
-(200/200) in both modes:
+`code/c/rosa.c`, word-level prose, single machine (`code/c/bench2.log`; absolute values move
+±50% with machine and load, the shape is the result):
 
 | input | Python | C (exact recency) | C (first-occurrence) |
 |---|---|---|---|
-| random symbols, 32k | 1.55 µs/tok | 0.46 µs/tok | **0.36 µs/tok** |
-| real prose (words), 32k | 3.78 µs/tok | 0.94 µs/tok | **0.68 µs/tok** |
-| repeated 28-token block, 32k | 78.7 µs/tok | 6.20 µs/tok | **0.52 µs/tok** |
-| constant run, 32k | 1,482.9 µs/tok | 122.7 µs/tok | **0.33 µs/tok** |
+| random symbols, 32k | 2.48 µs/tok | 0.72 µs/tok | **0.48 µs/tok** |
+| real prose (words), 32k | 1.24 µs/tok | 0.66 µs/tok | **0.57 µs/tok** |
+| repeated 28-token block, 32k | 46.5 µs/tok | 3.43 µs/tok | **0.32 µs/tok** |
+| constant run, 32k | 1,437.7 µs/tok | 136.1 µs/tok | **0.33 µs/tok** |
 
 The cliff is the `while e[v] < i: e[v] = i` most-recent-occurrence stamp in the original
 pseudocode: it walks the suffix-link chain on every token, so it is **quadratic in exactly the
 inputs where the mechanism earns its keep** — constant runs, boilerplate, repeated blocks. In
-Python it is 1483 µs/token at 32k on a constant run, 80× the random-input cost.
+Python it is 1,438 µs/token at 32k on a constant run, ~580× the random-input cost.
 
 Replacing the recency stamp with a **first-occurrence** timestamp (no propagation; the walk stops at
 the first chain state whose first end is earlier) removes it: **0.33 µs/token, flat in n**. Measured
-effect on predictions over 30,376 word tokens: next-word accuracy **0.766 vs 0.764**, different
-continuation chosen at 9.9% of positions. A link-cut tree is the exact-recency fix (what
+effect on predictions over 36,000 word tokens: next-word accuracy **0.761 vs 0.759** (on the 89.7% of
+positions where ROSA fires, 0.848 vs 0.847), different continuation chosen at 11.2% of positions. A link-cut tree is the exact-recency fix (what
 `rosa-torch` uses); first-occurrence is the cheap one.
 
 Also worth internalising: automaton work is **serial**, so GPUs do not help it. In the training

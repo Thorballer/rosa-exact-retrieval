@@ -158,11 +158,11 @@ reach, and costs ~5–14% where it can.
 ls kernels/                      # 25 kernels, each with its kernel.py + kernel-metadata.json
 cat results/README.md            # which raw run is canonical, which are void and why
 
-# the cost numbers run locally in ~20 s
-cd code/c && python3 bench2.py && python3 acc.py
+# the cost numbers run locally in ~30 s (needs clang)
+cd code/c && python3 check.py && python3 bench2.py && python3 acc.py
 ```
 
-`code/c/rosa.c` is a 113-line C suffix-automaton predictor with two modes: `mode 0` reproduces
+`code/c/rosa.c` is a compact C suffix-automaton predictor with two modes: `mode 0` reproduces
 ROSA exactly (per-position recency stamp), `mode 1` replaces the recency stamp with a
 first-occurrence timestamp and removes the only quadratic cliff in the algorithm. `bench.log` and
 `bench2.log` are the recorded outputs.
@@ -184,7 +184,7 @@ first-occurrence timestamp and removes the only quadratic cliff in the algorithm
 ```
 kernels/<kaggle-slug>/       25 training/eval kernels, exactly as pushed
 results/<slug>[*].jsonl      raw JSONL output, one line per measurement
-code/c/                      C suffix automaton, benchmarks, logs
+code/c/                      C suffix automaton, brute-force check, benchmarks, logs
 code/scripts/monitor.sh      Kaggle poll/harvest wrapper used throughout
 docs/findings.md             full findings, with the correction chain
 docs/experiments.md          kernel register: question, result, verdict, failure mode

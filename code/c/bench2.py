@@ -1,5 +1,5 @@
 """Is ROSA slow because of Python, or because of the algorithm?"""
-import ctypes, os, random, re, subprocess, time
+import ctypes, os, random, re, subprocess, sys, time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SO = os.path.join(HERE, "librosa_speed.dylib")
@@ -50,9 +50,20 @@ def build_src_py(x):
     return src
 
 
+CORPUS = os.environ.get("ROSA_CORPUS") or (sys.argv[1] if len(sys.argv) > 1 else None)
+if CORPUS is None:
+    for cand in ("corpus.txt", "~/.hermes/CONTRIBUTING.md"):
+        if os.path.exists(os.path.expanduser(cand)):
+            CORPUS = os.path.expanduser(cand)
+            break
+if CORPUS is None:
+    raise SystemExit("no corpus: pass a UTF-8 text file as argv[1] or set ROSA_CORPUS")
+
+
 def corpus():
-    words = re.findall(r"\S+", open(os.path.expanduser("~/.hermes/CONTRIBUTING.md"),
-                                    encoding="utf-8", errors="ignore").read())
+    """Word-level token stream. Any English prose file works; the recorded logs used a
+    ~7.6k-word markdown document, so absolute timings depend on the input you pass."""
+    words = re.findall(r"\S+", open(CORPUS, encoding="utf-8", errors="ignore").read())
     vocab = {w: i for i, w in enumerate(sorted(set(words)))}
     return [vocab[w] for w in words]
 

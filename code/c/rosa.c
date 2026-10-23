@@ -6,6 +6,10 @@
 //   mode 1 : first-occurrence -- no stamping at all; the deepest chain state whose
 //                        first end position is earlier is the match. O(1) typical,
 //                        and the quadratic disappears.
+//
+// Returns 0 on success, 1 on allocation failure, 2 if a capacity bound would be
+// exceeded (the arrays are sized for the theoretical maxima; a guard turns the
+// adversarial case into an error instead of a silent overrun).
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
@@ -19,7 +23,10 @@ static inline uint32_t hs(int32_t s, int32_t sym) {
 }
 
 int build_src_c(const int32_t *x, int n, int32_t *src, int mode) {
-    int maxs = 2 * n + 2, maxe = 4 * n + 16 + 8;
+    // states: <= 2n-1 (root included).  edges: at most 3n-4 transitions, but this
+    // implementation stores a separate entry for every clone copy of a transition,
+    // so it needs the larger 4n+24 allowance; the guard below covers the rest.
+    int maxs = 2 * n + 2, maxe = 4 * n + 24;
     uint32_t hcap = 1;
     while ((int)hcap < 6 * n + 16) hcap <<= 1;
     uint32_t hmask = hcap - 1;
@@ -28,8 +35,11 @@ int build_src_c(const int32_t *x, int n, int32_t *src, int mode) {
     int32_t *head = malloc(maxs * 4), *esym = malloc(maxe * 4), *eto = malloc(maxe * 4),
             *enext = malloc(maxe * 4);
     int32_t *hkst = malloc(hcap * 4), *hksym = malloc(hcap * 4), *he = malloc(hcap * 4);
-    if (!link || !len || !end || !head || !esym || !eto || !enext || !hkst || !hksym || !he)
+    if (!link || !len || !end || !head || !esym || !eto || !enext || !hkst || !hksym || !he) {
+        free(link); free(len); free(end); free(head);
+        free(esym); free(eto); free(enext); free(hkst); free(hksym); free(he);
         return 1;
+    }
     for (int i = 0; i < maxs; i++) { head[i] = -1; link[i] = -1; end[i] = -1; len[i] = 0; }
     for (uint32_t i = 0; i < hcap; i++) he[i] = EMPTY;
 
@@ -37,19 +47,22 @@ int build_src_c(const int32_t *x, int n, int32_t *src, int mode) {
 
     for (int i = 0; i < n; i++) {
         int32_t t = x[i];
+        if (z + 1 >= maxs) { goto fail; }
         int cur = z++;
         len[cur] = len[last] + 1; end[cur] = mode ? i : -1; head[cur] = -1;
 
         int p = last;
         while (p != -1) {
-            uint32_t h = hs(p, t) & hmask;
+            uint32_t h = hs(p, t) & hmask, probe = 0;
             int e = EMPTY;
-            while (he[h] != EMPTY) {
+            while (he[h] != EMPTY && ++probe <= hcap) {
                 if (hkst[h] == p && hksym[h] == t) { e = he[h]; break; }
                 h = (h + 1) & hmask;
             }
+            if (probe > hcap) goto fail;            // table full
             if (e != EMPTY) break;
             // insert edge (p, t) -> cur
+            if (ne + 1 > maxe) goto fail;
             esym[ne] = t; eto[ne] = cur; enext[ne] = head[p]; head[p] = ne;
             hkst[h] = p; hksym[h] = t; he[h] = ne; ne++;
             p = link[p];
@@ -57,27 +70,33 @@ int build_src_c(const int32_t *x, int n, int32_t *src, int mode) {
         if (p == -1) {
             link[cur] = 0;
         } else {
-            uint32_t h = hs(p, t) & hmask;
+            uint32_t h = hs(p, t) & hmask, probe = 0;
             int q = -1;
-            while (he[h] != EMPTY) {
+            while (he[h] != EMPTY && ++probe <= hcap) {
                 if (hkst[h] == p && hksym[h] == t) { q = eto[he[h]]; break; }
                 h = (h + 1) & hmask;
             }
+            if (q == -1) goto fail;                 // inconsistent: extension loop found it
             if (len[p] + 1 == len[q]) {
                 link[cur] = q;
             } else {
+                if (z + 1 >= maxs) goto fail;
                 int u = z++;
                 len[u] = len[p] + 1; link[u] = link[q]; end[u] = end[q]; head[u] = -1;
                 for (int e2 = head[q]; e2 != -1; e2 = enext[e2]) {
+                    // each cloned transition is a NEW storage entry, so the edge array needs
+                    // room for (transitions + sum of clone out-degrees)
+                    if (ne + 1 > maxe) goto fail;
                     esym[ne] = esym[e2]; eto[ne] = eto[e2]; enext[ne] = head[u]; head[u] = ne;
-                    uint32_t hh = hs(u, esym[e2]) & hmask;
-                    while (he[hh] != EMPTY) hh = (hh + 1) & hmask;
+                    uint32_t hh = hs(u, esym[e2]) & hmask, pr = 0;
+                    while (he[hh] != EMPTY && ++pr <= hcap) hh = (hh + 1) & hmask;
+                    if (pr > hcap) goto fail;
                     hkst[hh] = u; hksym[hh] = esym[e2]; he[hh] = ne; ne++;
                 }
                 while (p != -1) {
-                    uint32_t hh = hs(p, t) & hmask;
+                    uint32_t hh = hs(p, t) & hmask, pr = 0;
                     int hit = EMPTY;
-                    while (he[hh] != EMPTY) {
+                    while (he[hh] != EMPTY && ++pr <= hcap) {
                         if (hkst[hh] == p && hksym[hh] == t) { hit = he[hh]; break; }
                         hh = (hh + 1) & hmask;
                     }
@@ -110,4 +129,9 @@ int build_src_c(const int32_t *x, int n, int32_t *src, int mode) {
     free(link); free(len); free(end); free(head);
     free(esym); free(eto); free(enext); free(hkst); free(hksym); free(he);
     return 0;
+
+fail:  // capacity guard: refuse rather than corrupt memory
+    free(link); free(len); free(end); free(head);
+    free(esym); free(eto); free(enext); free(hkst); free(hksym); free(he);
+    return 2;
 }
