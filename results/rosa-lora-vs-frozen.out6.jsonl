@@ -1,0 +1,8 @@
+{"stage": "load", "model": "Qwen/Qwen2.5-0.5B", "steps": 400, "layers": [6, 12, 18]}
+{"pairs": 80}
+{"arm": "lora", "lora_params": 412360326}
+{"arm": "lora", "step": 0, "train_loss": 2.5682}
+{"arm": "lora", "step": 100, "train_loss": 2.0168}
+{"arm": "lora", "step": 200, "train_loss": 1.6928}
+{"arm": "lora", "step": 300, "train_loss": 1.3036}
+{"fatal": "NameError(\"name 'hooks' is not defined\")", "trace": "Traceback (most recent call last):\n  File \"/kaggle/src/script.py\", line 246, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/src/script.py\", line 222, in main\n    for hh in hooks:\n              ^^^^^\nNameError: name 'hooks' is not defined\n"}

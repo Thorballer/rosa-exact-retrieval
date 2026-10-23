@@ -1,0 +1,15 @@
+{"stage": "load", "model": "Qwen/Qwen2.5-0.5B", "device": "cuda", "gpu": "Tesla T4"}
+{"hidden": 896, "layers": 24, "T": 1024, "WIN": 512, "train_chunks": 2482, "test_chunks": 40, "STEPS": 400}
+{"smoke": {"loss": 3.824, "sidecar_grad": 0.0007463, "llm_params_with_grad": 0}}
+{"sidecar": "real", "step": 0, "train_loss": 3.3497, "gate": 0.1141}
+{"sidecar": "real", "step": 100, "train_loss": 2.3212, "gate": 0.0606}
+{"sidecar": "real", "step": 200, "train_loss": 2.9675, "gate": 0.0632}
+{"sidecar": "real", "step": 300, "train_loss": 1.5281, "gate": 0.0493}
+{"sidecar": "scrambled", "step": 0, "train_loss": 3.3593, "gate": 0.1132}
+{"sidecar": "scrambled", "step": 100, "train_loss": 2.3206, "gate": 0.0466}
+{"sidecar": "scrambled", "step": 200, "train_loss": 2.9939, "gate": 0.0424}
+{"sidecar": "scrambled", "step": 300, "train_loss": 1.5739, "gate": 0.0228}
+{"in": {"ppl": 15.095, "n": 25765}, "out": {"ppl": 136.024, "n": 1373}, "arm": "no_sidecar", "used_frac": 0.663}
+{"in": {"ppl": 6.6, "n": 25765}, "out": {"ppl": 16.342, "n": 1373}, "arm": "sidecar", "used_frac": 0.663}
+{"in": {"ppl": 7.14, "n": 22473}, "out": {"ppl": 8.797, "n": 4665}, "arm": "scrambled", "used_frac": 0.663}
+{"done": true}

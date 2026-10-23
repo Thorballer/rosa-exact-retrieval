@@ -1,0 +1,27 @@
+{"stage": "load", "model": "Qwen/Qwen2.5-0.5B", "span": 1024, "win": 512, "layers": [6, 12, 18]}
+{"memory_Per_token": {"kv_fp16": 12288, "index_est": 60, "ratio": 204.8, "note": "extra layers/sidecars add parameters, not per-token state"}}
+{"pairs": 80}
+{"arm": "base", "step": 0, "loss": 2.6425}
+{"arm": "base", "step": 200, "loss": 2.0583}
+{"arm": "aux", "step": 0, "loss": 3.8363}
+{"arm": "aux", "step": 200, "loss": 2.728}
+{"arm": "multi", "step": 0, "loss": 2.6498}
+{"arm": "multi", "step": 200, "loss": 2.0118}
+{"arm": "auxmulti", "step": 0, "loss": 3.8384}
+{"arm": "auxmulti", "step": 200, "loss": 2.4317}
+{"cond": "dup", "arm": "none", "ppl": 13.58}
+{"cond": "dup", "arm": "base", "ppl": 12.827}
+{"cond": "dup", "arm": "aux", "ppl": 13.295}
+{"cond": "dup", "arm": "multi", "ppl": 11.41}
+{"cond": "dup", "arm": "auxmulti", "ppl": 10.502}
+{"cond": "renamed", "arm": "none", "ppl": 23.049}
+{"cond": "renamed", "arm": "base", "ppl": 14.557}
+{"cond": "renamed", "arm": "aux", "ppl": 14.574}
+{"cond": "renamed", "arm": "multi", "ppl": 11.593}
+{"cond": "renamed", "arm": "auxmulti", "ppl": 10.903}
+{"cond": "renamed_rot", "arm": "none", "ppl": 26.964}
+{"cond": "renamed_rot", "arm": "base", "ppl": 16.785}
+{"cond": "renamed_rot", "arm": "aux", "ppl": 16.418}
+{"cond": "renamed_rot", "arm": "multi", "ppl": 13.191}
+{"cond": "renamed_rot", "arm": "auxmulti", "ppl": 12.639}
+{"done": true}

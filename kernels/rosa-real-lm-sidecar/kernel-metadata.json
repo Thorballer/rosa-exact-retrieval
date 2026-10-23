@@ -1,0 +1,13 @@
+{
+  "id": "thorballer/rosa-real-lm-sidecar",
+  "title": "rosa real lm sidecar",
+  "code_file": "kernel_control2.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

@@ -1,0 +1,18 @@
+{"stage": "load", "model": "Qwen/Qwen2.5-0.5B", "device": "cuda", "gpu": "Tesla T4"}
+{"hidden": 896, "layers": 24, "T": 1024, "WIN": 512, "train_chunks": 2482, "test_chunks": 40}
+{"smoke": {"loss": 3.8, "sidecar_grad": 0.00105376, "llm_params_with_grad": 0, "hook_output_type": "tuple-or-tensor (type-preserving)", "secs": 1.0}}
+{"step": 0, "train_loss": 3.3794, "gate": 0.1619, "used": 0.665}
+{"step": 50, "train_loss": 2.4297, "gate": 0.0523, "used": 0.657}
+{"step": 100, "train_loss": 2.3788, "gate": 0.0487, "used": 0.631}
+{"step": 150, "train_loss": 2.1812, "gate": 0.0583, "used": 0.635}
+{"step": 200, "train_loss": 2.9581, "gate": 0.0591, "used": 0.646}
+{"step": 250, "train_loss": 2.4487, "gate": 0.0578, "used": 0.699}
+{"step": 300, "train_loss": 1.5374, "gate": 0.0591, "used": 0.773}
+{"step": 350, "train_loss": 2.663, "gate": 0.0699, "used": 0.655}
+{"step": 400, "train_loss": 2.5549, "gate": 0.0601, "used": 0.586}
+{"step": 450, "train_loss": 2.1109, "gate": 0.0484, "used": 0.688}
+{"step": 500, "train_loss": 2.0978, "gate": 0.0599, "used": 0.639}
+{"step": 550, "train_loss": 1.743, "gate": 0.0556, "used": 0.671}
+{"arm": "no_sidecar", "in": {"ppl": 15.095, "n": 25765}, "out": {"ppl": 136.024, "n": 1373}, "used_frac": 0.663}
+{"arm": "sidecar", "in": {"ppl": 6.54, "n": 25765}, "out": {"ppl": 15.731, "n": 1373}, "used_frac": 0.663}
+{"done": true}

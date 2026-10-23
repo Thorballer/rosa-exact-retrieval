@@ -1,0 +1,18 @@
+{"stage": "load", "model": "Qwen/Qwen2.5-0.5B", "device": "cuda", "eval_T": 2048, "WIN": 512}
+{"chunks": 400, "decoded_sample": "# mypy: allow-untyped-defs\n# Copyright (c) Meta Platforms, Inc. and affiliates\nimport contextlib\nimport dataclasses"}
+{"sidecar": "real", "step": 0, "loss": 2.0159}
+{"sidecar": "real", "step": 150, "loss": 1.7062}
+{"sidecar": "const", "step": 0, "loss": 1.9952}
+{"sidecar": "const", "step": 150, "loss": 1.9333}
+{"sidecar": "scrambled", "step": 0, "loss": 2.0425}
+{"sidecar": "scrambled", "step": 150, "loss": 1.8552}
+{"cond": "dup", "match_len_frac_ge32": 0.97, "match_len_frac_ge128": 0.876, "n_positions": 30720}
+{"cond": "nomatch", "match_len_frac_ge32": 0.049, "match_len_frac_ge128": 0.004, "n_positions": 30720}
+{"cond": "dup", "arm": "none", "1-8": {"ppl": 617.79, "n": 210}, "8-32": {"ppl": 97.38, "n": 720}, "32-128": {"ppl": 29.23, "n": 2880}, "128-512": {"ppl": 18.02, "n": 11520}, "512-4096": {"ppl": 16.41, "n": 15360}, "all": {"ppl": 19.18, "n": 30690}}
+{"cond": "dup", "arm": "real", "1-8": {"ppl": 173.61, "n": 210}, "8-32": {"ppl": 37.61, "n": 720}, "32-128": {"ppl": 14.8, "n": 2880}, "128-512": {"ppl": 11.61, "n": 11520}, "512-4096": {"ppl": 17.27, "n": 15360}, "all": {"ppl": 15.18, "n": 30690}}
+{"cond": "dup", "arm": "const", "1-8": {"ppl": 331.42, "n": 210}, "8-32": {"ppl": 58.88, "n": 720}, "32-128": {"ppl": 20.78, "n": 2880}, "128-512": {"ppl": 14.97, "n": 11520}, "512-4096": {"ppl": 14.78, "n": 15360}, "all": {"ppl": 16.18, "n": 30690}}
+{"cond": "dup", "arm": "scrambled", "1-8": {"ppl": 362.0, "n": 210}, "8-32": {"ppl": 63.93, "n": 720}, "32-128": {"ppl": 21.22, "n": 2880}, "128-512": {"ppl": 15.2, "n": 11520}, "512-4096": {"ppl": 14.65, "n": 15360}, "all": {"ppl": 16.28, "n": 30690}}
+{"cond": "nomatch", "arm": "none", "1-8": {"ppl": 11.91, "n": 20156}, "8-32": {"ppl": 4.44, "n": 2284}, "32-128": {"ppl": 9.42, "n": 1384}, "128-512": {"ppl": 5.85, "n": 117}, "all": {"ppl": 13.71, "n": 30690}}
+{"cond": "nomatch", "arm": "real", "1-8": {"ppl": 11.04, "n": 20156}, "8-32": {"ppl": 4.11, "n": 2284}, "32-128": {"ppl": 8.24, "n": 1384}, "128-512": {"ppl": 4.85, "n": 117}, "all": {"ppl": 12.11, "n": 30690}}
+{"cond": "nomatch", "arm": "const", "1-8": {"ppl": 10.8, "n": 20156}, "8-32": {"ppl": 4.34, "n": 2284}, "32-128": {"ppl": 8.66, "n": 1384}, "128-512": {"ppl": 5.23, "n": 117}, "all": {"ppl": 12.19, "n": 30690}}
+{"done": true}

@@ -1,0 +1,29 @@
+{"stage": "load", "model": "Qwen/Qwen2.5-0.5B", "steps": 400, "layers": [6, 12, 18]}
+{"pairs": 80}
+{"arm": "lora", "lora_params": 412360326}
+{"arm": "lora", "step": 0, "train_loss": 2.5682}
+{"arm": "lora", "step": 100, "train_loss": 2.0168}
+{"arm": "lora", "step": 200, "train_loss": 1.6928}
+{"arm": "lora", "step": 300, "train_loss": 1.3036}
+{"arm": "lora", "cond": "dup", "ppl": 8.507}
+{"arm": "lora", "cond": "renamed", "ppl": 7.764}
+{"arm": "lora", "cond": "renamed_rot", "ppl": 8.741}
+{"arm": "lora", "cond": "in_dist", "ppl": 6.915}
+{"arm": "lora+side", "lora_params": 412360326}
+{"arm": "lora+side", "step": 0, "train_loss": 3.8384}
+{"arm": "lora+side", "step": 100, "train_loss": 2.5051}
+{"arm": "lora+side", "step": 200, "train_loss": 2.0884}
+{"arm": "lora+side", "step": 300, "train_loss": 1.6474}
+{"arm": "lora+side", "cond": "dup", "ppl": 8.218}
+{"arm": "lora+side", "cond": "renamed", "ppl": 7.991}
+{"arm": "lora+side", "cond": "renamed_rot", "ppl": 9.171}
+{"arm": "lora+side", "cond": "in_dist", "ppl": 6.652}
+{"arm": "frozen+side", "step": 0, "train_loss": 3.8384}
+{"arm": "frozen+side", "step": 100, "train_loss": 2.8363}
+{"arm": "frozen+side", "step": 200, "train_loss": 2.4438}
+{"arm": "frozen+side", "step": 300, "train_loss": 1.9379}
+{"arm": "frozen+side", "cond": "dup", "ppl": 13.58}
+{"arm": "frozen+side", "cond": "renamed", "ppl": 23.049}
+{"arm": "frozen+side", "cond": "renamed_rot", "ppl": 26.964}
+{"arm": "frozen+side", "cond": "in_dist", "ppl": 19.033}
+{"done": true}

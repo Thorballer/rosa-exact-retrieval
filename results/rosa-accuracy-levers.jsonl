@@ -1,0 +1,27 @@
+{"stage": "load", "model": "Qwen/Qwen2.5-0.5B", "span": 1024, "win": 512, "K": 4, "minlen": 8}
+{"memory_per_token_bytes": {"kv_cache_fp16": 12288, "index_bound_est": 60, "ratio": 204.8, "note": "top-K candidates add zero storage"}}
+{"pairs": 80}
+{"arm": "top1", "step": 0, "loss": 2.6362}
+{"arm": "top1", "step": 200, "loss": 2.1895}
+{"arm": "top4", "step": 0, "loss": 2.632}
+{"arm": "top4", "step": 200, "loss": 2.1585}
+{"arm": "top1_len", "step": 0, "loss": 2.5659}
+{"arm": "top1_len", "step": 200, "loss": 2.3114}
+{"arm": "top4_len", "step": 0, "loss": 2.5659}
+{"arm": "top4_len", "step": 200, "loss": 2.4256}
+{"cond": "dup", "arm": "none", "ppl": 13.58}
+{"cond": "dup", "arm": "top1", "ppl": 12.609, "fire_rate": 1.0}
+{"cond": "dup", "arm": "top4", "ppl": 14.067, "fire_rate": 1.0}
+{"cond": "dup", "arm": "top1_len", "ppl": 21.741, "fire_rate": 0.993}
+{"cond": "dup", "arm": "top4_len", "ppl": 37.59, "fire_rate": 0.993}
+{"cond": "renamed", "arm": "none", "ppl": 23.049}
+{"cond": "renamed", "arm": "top1", "ppl": 15.047, "fire_rate": 0.884}
+{"cond": "renamed", "arm": "top4", "ppl": 15.777, "fire_rate": 0.884}
+{"cond": "renamed", "arm": "top1_len", "ppl": 18.069, "fire_rate": 0.176}
+{"cond": "renamed", "arm": "top4_len", "ppl": 17.396, "fire_rate": 0.176}
+{"cond": "renamed_rot", "arm": "none", "ppl": 26.964}
+{"cond": "renamed_rot", "arm": "top1", "ppl": 17.483, "fire_rate": 0.884}
+{"cond": "renamed_rot", "arm": "top4", "ppl": 18.253, "fire_rate": 0.884}
+{"cond": "renamed_rot", "arm": "top1_len", "ppl": 21.163, "fire_rate": 0.175}
+{"cond": "renamed_rot", "arm": "top4_len", "ppl": 20.504, "fire_rate": 0.175}
+{"done": true}

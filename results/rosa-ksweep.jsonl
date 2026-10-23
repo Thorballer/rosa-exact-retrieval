@@ -1,0 +1,10 @@
+{"oracle_idx_pos_acc": 1.0, "V": 192, "chance_acc": 0.0156}
+{"K": 64, "seed": 0, "acc": 0.015, "idx_pos_acc": 0.017, "params": 189473}
+{"K": 64, "seed": 1, "acc": 0.018, "idx_pos_acc": 0.007, "params": 189473}
+{"K": 256, "seed": 0, "acc": 0.097, "idx_pos_acc": 0.025, "params": 226529}
+{"K": 256, "seed": 1, "acc": 0.309, "idx_pos_acc": 0.003, "params": 226529}
+{"K": 1024, "seed": 0, "acc": 0.248, "idx_pos_acc": 0.009, "params": 374753}
+{"K": 1024, "seed": 1, "acc": 0.248, "idx_pos_acc": 0.001, "params": 374753}
+{"K": 4096, "seed": 0, "error": "OutOfMemoryError('CUDA out of memory. Tried to allocate 6.25 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1006.81 MiB is free. Including non-PyTorch memory, this process has 13.58 GiB memory "}
+{"K": 4096, "seed": 1, "error": "OutOfMemoryError('CUDA out of memory. Tried to allocate 6.25 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1.00 GiB is free. Including non-PyTorch memory, this process has 13.56 GiB memory in "}
+{"done": true}

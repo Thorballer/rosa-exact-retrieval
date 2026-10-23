@@ -1,0 +1,31 @@
+{"stage": "load", "model": "Qwen/Qwen2.5-0.5B", "span": 1024, "win": 512, "rot": 340}
+{"pairs": 80}
+{"conditions": {"dup": {"match_mean": 512.5, "frac_ge16": 0.985}, "renamed": {"match_mean": 4.59, "frac_ge16": 0.046}, "renamed_rot": {"match_mean": 4.46, "frac_ge16": 0.042}}}
+{"seed": 0, "cond": "dup", "arm": "none", "ppl": 13.58}
+{"seed": 0, "cond": "dup", "arm": "verifier", "ppl": 12.499, "gate_valid": 0.0936, "gate_invalid": 0.1346}
+{"seed": 0, "cond": "dup", "arm": "no_meta", "ppl": 12.022, "gate_valid": 0.0692, "gate_invalid": 0.1046}
+{"seed": 0, "cond": "renamed", "arm": "none", "ppl": 23.049}
+{"seed": 0, "cond": "renamed", "arm": "verifier", "ppl": 14.269, "gate_valid": 0.1027, "gate_invalid": 0.1104}
+{"seed": 0, "cond": "renamed", "arm": "no_meta", "ppl": 13.764, "gate_valid": 0.0963, "gate_invalid": 0.1091}
+{"seed": 0, "cond": "renamed_rot", "arm": "none", "ppl": 26.964}
+{"seed": 0, "cond": "renamed_rot", "arm": "verifier", "ppl": 16.15, "gate_valid": 0.1004, "gate_invalid": 0.1133}
+{"seed": 0, "cond": "renamed_rot", "arm": "no_meta", "ppl": 15.539, "gate_valid": 0.0955, "gate_invalid": 0.1113}
+{"seed": 1, "cond": "dup", "arm": "none", "ppl": 13.58}
+{"seed": 1, "cond": "dup", "arm": "verifier", "ppl": 15.18, "gate_valid": 0.135, "gate_invalid": 0.168}
+{"seed": 1, "cond": "dup", "arm": "no_meta", "ppl": 16.35, "gate_valid": 0.1259, "gate_invalid": 0.131}
+{"seed": 1, "cond": "renamed", "arm": "none", "ppl": 23.049}
+{"seed": 1, "cond": "renamed", "arm": "verifier", "ppl": 14.14, "gate_valid": 0.1587, "gate_invalid": 0.1642}
+{"seed": 1, "cond": "renamed", "arm": "no_meta", "ppl": 12.853, "gate_valid": 0.1129, "gate_invalid": 0.1183}
+{"seed": 1, "cond": "renamed_rot", "arm": "none", "ppl": 26.964}
+{"seed": 1, "cond": "renamed_rot", "arm": "verifier", "ppl": 16.498, "gate_valid": 0.1599, "gate_invalid": 0.1708}
+{"seed": 1, "cond": "renamed_rot", "arm": "no_meta", "ppl": 14.895, "gate_valid": 0.1135, "gate_invalid": 0.1209}
+{"seed": 2, "cond": "dup", "arm": "none", "ppl": 13.58}
+{"seed": 2, "cond": "dup", "arm": "verifier", "ppl": 11.305, "gate_valid": 0.0836, "gate_invalid": 0.0975}
+{"seed": 2, "cond": "dup", "arm": "no_meta", "ppl": 11.747, "gate_valid": 0.0858, "gate_invalid": 0.0904}
+{"seed": 2, "cond": "renamed", "arm": "none", "ppl": 23.049}
+{"seed": 2, "cond": "renamed", "arm": "verifier", "ppl": 14.472, "gate_valid": 0.0742, "gate_invalid": 0.0787}
+{"seed": 2, "cond": "renamed", "arm": "no_meta", "ppl": 12.764, "gate_valid": 0.1048, "gate_invalid": 0.1113}
+{"seed": 2, "cond": "renamed_rot", "arm": "none", "ppl": 26.964}
+{"seed": 2, "cond": "renamed_rot", "arm": "verifier", "ppl": 16.621, "gate_valid": 0.0713, "gate_invalid": 0.0793}
+{"seed": 2, "cond": "renamed_rot", "arm": "no_meta", "ppl": 14.667, "gate_valid": 0.1018, "gate_invalid": 0.1119}
+{"done": true}

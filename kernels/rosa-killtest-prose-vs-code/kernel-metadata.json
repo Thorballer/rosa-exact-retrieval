@@ -1,0 +1,13 @@
+{
+  "id": "thorballer/rosa-killtest-prose-vs-code",
+  "title": "rosa killtest prose vs code",
+  "code_file": "kernel.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": []
+}

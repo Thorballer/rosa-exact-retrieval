@@ -1,0 +1,6 @@
+{"stage": "load", "model": "Qwen/Qwen2.5-0.5B", "span": 1024, "win": 512, "layers": [6, 12, 18]}
+{"memory_Per_token": {"kv_fp16": 12288, "index_est": 60, "ratio": 204.8, "note": "extra layers/sidecars add parameters, not per-token state"}}
+{"pairs": 80}
+{"arm": "base", "step": 0, "loss": 2.6425}
+{"arm": "base", "step": 200, "loss": 2.0723}
+{"fatal": "RuntimeError(\"shape '[-1, 151936]' is invalid for input of size 916608\")", "trace": "Traceback (most recent call last):\n  File \"/kaggle/src/script.py\", line 228, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/src/script.py\", line 193, in main\n    loss = loss + 0.1 * F.cross_entropy(av[:, :-1].float().reshape(-1, V), tgt.reshape(-1))\n                                        ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^\nRuntimeError: shape '[-1, 151936]' is invalid for input of size 916608\n"}

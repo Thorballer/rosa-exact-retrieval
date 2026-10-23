@@ -1,0 +1,11 @@
+{"smoke": "rosa_grad_norms", "n_with_grad": 42, "max": 0.088341}
+{"timing": {"rosa_step_s": 0.142, "train_bs": 24, "n_rosa_runs": 6, "chosen_steps": 800, "est_hours": 0.3}}
+{"arm": "full", "task": "copy", "seed": 0, "steps": 800, "params": 234656, "d": 96, "acc": 1.0, "read_gate": null, "matched_frac": null, "candidate_acc": null, "curve": [0.038, 0.142, 0.185, 0.421, 1.0, 1.0], "secs": 7.6}
+{"arm": "window", "task": "copy", "seed": 0, "steps": 800, "params": 234656, "d": 96, "acc": 0.1271, "read_gate": null, "matched_frac": null, "candidate_acc": null, "curve": [0.035, 0.066, 0.123, 0.129, 0.117, 0.128], "secs": 7.7}
+{"arm": "win+rosa", "task": "copy", "seed": 0, "steps": 800, "params": 379726, "d": 96, "acc": 0.1779, "read_gate": 0.113, "matched_frac": 0.7733, "candidate_acc": 0.0104, "curve": [0.025, 0.086, 0.159, 0.166, 0.174, 0.187], "secs": 105.7}
+{"arm": "win+rosa", "task": "copy", "seed": 1, "steps": 800, "params": 379726, "d": 96, "acc": 0.1823, "read_gate": 0.1385, "matched_frac": 0.7602, "candidate_acc": 0.0109, "curve": [0.025, 0.101, 0.154, 0.184, 0.193, 0.187], "secs": 104.5}
+{"arm": "full+rosa", "task": "copy", "seed": 0, "steps": 800, "params": 379726, "d": 96, "acc": 0.9971, "read_gate": 0.0248, "matched_frac": 0.7003, "candidate_acc": 0.0162, "curve": [0.024, 0.154, 0.192, 0.226, 0.573, 0.998], "secs": 104.4}
+{"arm": "full+rosa", "task": "copy", "seed": 1, "steps": 800, "params": 379726, "d": 96, "acc": 0.2279, "read_gate": 0.0099, "matched_frac": 0.9278, "candidate_acc": 0.0106, "curve": [0.025, 0.192, 0.239, 0.232, 0.239, 0.229], "secs": 105.7}
+{"arm": "win+rosa", "task": "harm", "seed": 0, "steps": 800, "params": 379726, "d": 96, "acc": 0.063, "read_gate": 0.0788, "matched_frac": 0.9995, "candidate_acc": 0.0202, "curve": [0.024, 0.061, 0.056, 0.059, 0.063, 0.061], "secs": 106.9}
+{"arm": "full+rosa", "task": "harm", "seed": 0, "steps": 800, "params": 379726, "d": 96, "acc": 0.0635, "read_gate": 0.0744, "matched_frac": 0.9991, "candidate_acc": 0.0148, "curve": [0.024, 0.061, 0.056, 0.059, 0.063, 0.063], "secs": 106.3}
+{"done": true, "hours": 0.18}

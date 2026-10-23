@@ -1,0 +1,16 @@
+{"stage": "load", "model": "Qwen/Qwen2.5-0.5B", "device": "cuda", "STEPS": 400}
+{"hidden": 896, "layers": 24, "WIN": 512, "train_chunks": 2482, "test_chunks": 40}
+{"smoke": {"loss": 3.791, "sidecar_grad": 0.00076491, "llm_params_with_grad": 0}}
+{"sidecar": "real", "step": 0, "train_loss": 3.3243, "gate": 0.1206}
+{"sidecar": "real", "step": 100, "train_loss": 2.3359, "gate": 0.0666}
+{"sidecar": "real", "step": 200, "train_loss": 3.0455, "gate": 0.0494}
+{"sidecar": "real", "step": 300, "train_loss": 1.5139, "gate": 0.0487}
+{"sidecar": "scrambled", "step": 0, "train_loss": 3.3115, "gate": 0.1204}
+{"sidecar": "scrambled", "step": 100, "train_loss": 2.3415, "gate": 0.0657}
+{"sidecar": "scrambled", "step": 200, "train_loss": 3.0059, "gate": 0.0496}
+{"sidecar": "scrambled", "step": 300, "train_loss": 1.569, "gate": 0.0253}
+{"in": {"ppl": 15.095, "n": 25765}, "out": {"ppl": 136.024, "n": 1373}, "arm": "none", "used_frac": 0.663}
+{"in": {"ppl": 6.632, "n": 25765}, "out": {"ppl": 16.785, "n": 1373}, "arm": "real+real", "used_frac": 0.663}
+{"in": {"ppl": 6.906, "n": 25765}, "out": {"ppl": 22.74, "n": 1373}, "arm": "scr+scr", "used_frac": 0.663}
+{"in": {"ppl": 7.41, "n": 25765}, "out": {"ppl": 25.777, "n": 1373}, "arm": "real+scr", "used_frac": 0.663}
+{"done": true}

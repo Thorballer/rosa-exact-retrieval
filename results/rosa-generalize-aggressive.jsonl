@@ -1,0 +1,11 @@
+{"stage": "load", "model": "Qwen/Qwen2.5-0.5B", "device": "cuda", "K": 256, "SPAN": 512}
+{"pairs": 120, "mean_renames": 123.3}
+{"exact_match_in_renamed_half": {"mean": 3.81, "max": 87, "frac_ge8": 0.135}}
+{"sidecar": "exact", "step": 0, "loss": 1.5652}
+{"sidecar": "exact", "step": 150, "loss": 2.0159}
+{"sidecar": "coarse", "step": 0, "loss": 2.7534}
+{"sidecar": "coarse", "step": 150, "loss": 2.6992}
+{"cond": "renamed_aggressive", "arm": "none", "ppl": 121.75, "pos_acc": null}
+{"cond": "renamed_aggressive", "arm": "exact", "ppl": 297.44, "pos_acc": {"within4": 0.478, "within16": 0.011, "within64": 0.048, "beyond": 0.463}}
+{"cond": "renamed_aggressive", "arm": "coarse", "ppl": 269.89, "pos_acc": {"within4": 0.307, "within16": 0.011, "within64": 0.044, "beyond": 0.637}}
+{"done": true}

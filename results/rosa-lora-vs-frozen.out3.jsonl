@@ -1,0 +1,3 @@
+{"stage": "load", "model": "Qwen/Qwen2.5-0.5B", "steps": 400}
+{"pairs": 80}
+{"fatal": "NameError(\"name 'LAYERS_USED' is not defined\")", "trace": "Traceback (most recent call last):\n  File \"/kaggle/src/script.py\", line 239, in <module>\n    main()\n    ~~~~^^\n  File \"/kaggle/src/script.py\", line 179, in main\n    sides = {i: Side(model.config.hidden_size, model.config.vocab_size).to(DEV) for i in LAYERS_USED}\n                                                                                         ^^^^^^^^^^^\nNameError: name 'LAYERS_USED' is not defined\n"}

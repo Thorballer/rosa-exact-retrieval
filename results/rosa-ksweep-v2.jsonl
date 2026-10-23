@@ -1,0 +1,20 @@
+{"oracle_idx_pos_acc": 1.0, "V": 192, "chance_acc": 0.0156, "steps": 2500}
+{"K": 256, "seed": 0, "step": 0, "loss": 5.9734}
+{"K": 256, "seed": 0, "step": 500, "loss": 4.4281}
+{"K": 256, "seed": 0, "step": 1000, "loss": 3.6315}
+{"K": 256, "seed": 0, "step": 1500, "loss": 3.5178}
+{"K": 256, "seed": 0, "step": 2000, "loss": 4.1813}
+{"K": 256, "seed": 0, "acc": 0.178, "idx_pos_acc": 0.054, "params": 226529}
+{"K": 1024, "seed": 0, "step": 0, "loss": 5.929}
+{"K": 1024, "seed": 0, "step": 500, "loss": 3.772}
+{"K": 1024, "seed": 0, "step": 1000, "loss": 3.3433}
+{"K": 1024, "seed": 0, "step": 1500, "loss": 4.0126}
+{"K": 1024, "seed": 0, "step": 2000, "loss": 3.527}
+{"K": 1024, "seed": 0, "acc": 0.374, "idx_pos_acc": 0.032, "params": 374753}
+{"K": 4096, "seed": 0, "step": 0, "loss": 5.8548}
+{"K": 4096, "seed": 0, "step": 500, "loss": 2.6124}
+{"K": 4096, "seed": 0, "step": 1000, "loss": 2.3118}
+{"K": 4096, "seed": 0, "step": 1500, "loss": 2.2308}
+{"K": 4096, "seed": 0, "step": 2000, "loss": 2.0299}
+{"K": 4096, "error": "OutOfMemoryError('CUDA out of memory. Tried to allocate 6.25 GiB. GPU 0 has a total capacity of 14.56 GiB of which 1000.81 MiB is free. Including non-PyTorch memory, this process has 13.58 GiB memory "}
+{"done": true}

@@ -1,0 +1,15 @@
+correctness (recency mode): 200/200 identical to Python reference
+
+shape                 n  py us/tok   C rec  C first  x vs py
+random(1k sym)     4096       1.46    0.42     0.35     3.5x
+random(1k sym)    32768       1.55    0.46     0.36     3.4x
+constant run       4096     125.63   11.33     0.33    11.1x
+constant run      32768    1482.93  122.66     0.33    12.1x
+repeated 28-blk    4096       5.67    0.81     0.32     7.0x
+repeated 28-blk   32768      78.72    6.20     0.52    12.7x
+real prose(word)   4096       1.56    0.50     0.60     3.1x
+real prose(word)  32768       3.78    0.94     0.68     4.0x
+
+real prose, 30376 word tokens:
+  next-word accuracy  recency 0.003 | first-occurrence 0.003
+  different continuation chosen: 9.9% of positions

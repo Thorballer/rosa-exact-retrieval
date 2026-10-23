@@ -1,0 +1,32 @@
+{"smoke": "rosa_grad_norms", "n_with_grad": 42, "max": 0.088341}
+{"timing": {"rosa_step_s": 0.144, "train_bs": 24, "n_rosa_runs": 14, "chosen_steps": 800, "est_hours": 0.72}}
+{"oracle_by_condition": {"copy": 1.0, "shuffled": 0.045, "norepeat": 0.029}}
+{"arm": "full", "task": "copy", "seed": 0, "steps": 800, "params": 234656, "d": 96, "acc": 1.0, "read_gate": null, "curve": [0.038, 0.142, 0.185, 0.421, 1.0, 1.0], "secs": 7.3}
+{"arm": "full", "task": "copy", "seed": 1, "steps": 800, "params": 234656, "d": 96, "acc": 0.1849, "read_gate": null, "curve": [0.026, 0.142, 0.177, 0.187, 0.191, 0.183], "secs": 7.3}
+{"arm": "full", "task": "copy", "seed": 2, "steps": 800, "params": 234656, "d": 96, "acc": 0.1948, "read_gate": null, "curve": [0.031, 0.147, 0.185, 0.186, 0.184, 0.199], "secs": 7.5}
+{"arm": "fullwide", "task": "copy", "seed": 0, "steps": 800, "params": 382880, "d": 96, "acc": 0.1907, "read_gate": null, "curve": [0.039, 0.122, 0.172, 0.186, 0.188, 0.192], "secs": 7.3}
+{"arm": "fullwide", "task": "copy", "seed": 1, "steps": 800, "params": 382880, "d": 96, "acc": 0.187, "read_gate": null, "curve": [0.032, 0.149, 0.188, 0.189, 0.195, 0.185], "secs": 7.4}
+{"arm": "fullwide", "task": "copy", "seed": 2, "steps": 800, "params": 382880, "d": 96, "acc": 0.1961, "read_gate": null, "curve": [0.029, 0.13, 0.178, 0.182, 0.186, 0.195], "secs": 7.4}
+{"arm": "win+rosa", "task": "copy", "seed": 0, "steps": 800, "params": 379726, "d": 96, "acc": 0.1779, "read_gate": 0.113, "curve": [0.025, 0.086, 0.159, 0.166, 0.174, 0.187], "secs": 98.8}
+{"arm": "win+rosa", "task": "copy", "seed": 1, "steps": 800, "params": 379726, "d": 96, "acc": 0.1823, "read_gate": 0.1385, "curve": [0.025, 0.101, 0.154, 0.184, 0.193, 0.187], "secs": 99.5}
+{"arm": "win+rosa", "task": "copy", "seed": 2, "steps": 800, "params": 379726, "d": 96, "acc": 0.174, "read_gate": 0.118, "curve": [0.04, 0.128, 0.162, 0.17, 0.184, 0.181], "secs": 99.6}
+{"arm": "full+rosa", "task": "copy", "seed": 0, "steps": 800, "params": 379726, "d": 96, "acc": 0.9971, "read_gate": 0.0248, "curve": [0.024, 0.154, 0.192, 0.226, 0.573, 0.998], "secs": 99.3}
+{"arm": "full+rosa", "task": "copy", "seed": 1, "steps": 800, "params": 379726, "d": 96, "acc": 0.2279, "read_gate": 0.0099, "curve": [0.025, 0.192, 0.239, 0.232, 0.239, 0.229], "secs": 99.9}
+{"arm": "full+rosa", "task": "copy", "seed": 2, "steps": 800, "params": 379726, "d": 96, "acc": 1.0, "read_gate": 0.0493, "curve": [0.039, 0.157, 0.214, 0.234, 1.0, 1.0], "secs": 99.5}
+{"arm": "full", "task": "shuffled", "seed": 0, "steps": 800, "params": 234656, "d": 96, "acc": 0.063, "read_gate": null, "curve": [0.033, 0.059, 0.06, 0.061, 0.063, 0.061], "secs": 8.1}
+{"arm": "full", "task": "shuffled", "seed": 1, "steps": 800, "params": 234656, "d": 96, "acc": 0.0637, "read_gate": null, "curve": [0.032, 0.072, 0.066, 0.062, 0.065, 0.061], "secs": 8.2}
+{"arm": "fullwide", "task": "shuffled", "seed": 0, "steps": 800, "params": 382880, "d": 96, "acc": 0.0593, "read_gate": null, "curve": [0.032, 0.059, 0.059, 0.06, 0.063, 0.058], "secs": 8.2}
+{"arm": "fullwide", "task": "shuffled", "seed": 1, "steps": 800, "params": 382880, "d": 96, "acc": 0.0645, "read_gate": null, "curve": [0.033, 0.071, 0.064, 0.064, 0.062, 0.056], "secs": 8.1}
+{"arm": "win+rosa", "task": "shuffled", "seed": 0, "steps": 800, "params": 379726, "d": 96, "acc": 0.0613, "read_gate": 0.0709, "curve": [0.028, 0.059, 0.061, 0.061, 0.063, 0.061], "secs": 101.2}
+{"arm": "win+rosa", "task": "shuffled", "seed": 1, "steps": 800, "params": 379726, "d": 96, "acc": 0.0645, "read_gate": 0.0597, "curve": [0.02, 0.069, 0.064, 0.063, 0.066, 0.06], "secs": 100.4}
+{"arm": "full+rosa", "task": "shuffled", "seed": 0, "steps": 800, "params": 379726, "d": 96, "acc": 0.0609, "read_gate": 0.0714, "curve": [0.027, 0.059, 0.061, 0.061, 0.063, 0.058], "secs": 101.8}
+{"arm": "full+rosa", "task": "shuffled", "seed": 1, "steps": 800, "params": 379726, "d": 96, "acc": 0.0652, "read_gate": 0.0498, "curve": [0.024, 0.069, 0.065, 0.063, 0.066, 0.06], "secs": 102.1}
+{"arm": "full", "task": "norepeat", "seed": 0, "steps": 800, "params": 234656, "d": 96, "acc": 1.0, "read_gate": null, "curve": [0.042, 1.0, 1.0, 1.0, 1.0, 1.0], "secs": 7.0}
+{"arm": "full", "task": "norepeat", "seed": 1, "steps": 800, "params": 234656, "d": 96, "acc": 1.0, "read_gate": null, "curve": [0.06, 1.0, 1.0, 1.0, 1.0, 1.0], "secs": 7.1}
+{"arm": "fullwide", "task": "norepeat", "seed": 0, "steps": 800, "params": 382880, "d": 96, "acc": 1.0, "read_gate": null, "curve": [0.056, 1.0, 1.0, 1.0, 1.0, 1.0], "secs": 7.1}
+{"arm": "fullwide", "task": "norepeat", "seed": 1, "steps": 800, "params": 382880, "d": 96, "acc": 1.0, "read_gate": null, "curve": [0.033, 1.0, 1.0, 1.0, 1.0, 1.0], "secs": 7.0}
+{"arm": "win+rosa", "task": "norepeat", "seed": 0, "steps": 800, "params": 379726, "d": 96, "acc": 1.0, "read_gate": 0.3603, "curve": [0.004, 1.0, 1.0, 1.0, 1.0, 1.0], "secs": 102.1}
+{"arm": "win+rosa", "task": "norepeat", "seed": 1, "steps": 800, "params": 379726, "d": 96, "acc": 1.0, "read_gate": 0.5111, "curve": [0.022, 1.0, 1.0, 1.0, 1.0, 1.0], "secs": 101.7}
+{"arm": "full+rosa", "task": "norepeat", "seed": 0, "steps": 800, "params": 379726, "d": 96, "acc": 1.0, "read_gate": 0.4378, "curve": [0.006, 1.0, 1.0, 1.0, 1.0, 1.0], "secs": 102.3}
+{"arm": "full+rosa", "task": "norepeat", "seed": 1, "steps": 800, "params": 379726, "d": 96, "acc": 1.0, "read_gate": 0.5287, "curve": [0.029, 1.0, 1.0, 1.0, 1.0, 1.0], "secs": 100.4}
+{"done": true, "hours": 0.42}

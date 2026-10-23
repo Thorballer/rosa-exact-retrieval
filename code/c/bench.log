@@ -1,0 +1,21 @@
+correctness: 200/200 identical to the Python reference
+
+shape                    n    py(s)     C(s)  speedup  C µs/tok
+random(1k sym)        2048    0.003   0.0030     1.1x      1.46
+random(1k sym)        4096    0.005   0.0082     0.6x      2.01
+constant run          2048    0.140   0.0045    31.4x      2.18
+constant run          4096    0.605   0.0680     8.9x     16.61
+repeated 28-blk       2048    0.012   0.0015     8.0x      0.71
+repeated 28-blk       4096    0.045   0.0047     9.6x      1.15
+real prose(word)      2048    0.004   0.0049     0.8x      2.37
+real prose(word)      4096    0.008   0.0188     0.4x      4.60
+
+C only, scaling:
+  random(1k sym)     n= 16384:   0.081s  (  4.94 µs/token)
+  random(1k sym)     n= 32768:   0.168s  (  5.13 µs/token)
+  constant run       n= 16384:   1.172s  ( 71.56 µs/token)
+  constant run       n= 32768:   4.094s  (124.94 µs/token)
+  repeated 28-blk    n= 16384:   0.030s  (  1.83 µs/token)
+  repeated 28-blk    n= 32768:   0.111s  (  3.38 µs/token)
+  real prose(word)   n= 16384:   0.040s  (  2.43 µs/token)
+  real prose(word)   n= 32768:   0.046s  (  1.40 µs/token)

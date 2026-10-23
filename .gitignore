@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.dylib
+*.so
+.ipynb_checkpoints/
+.kaggle/
+out*/

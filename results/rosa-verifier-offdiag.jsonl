@@ -1,0 +1,19 @@
+{"stage": "load", "model": "Qwen/Qwen2.5-0.5B", "device": "cuda", "rot": 170}
+{"pairs": 100}
+{"conditions": {"dup": {"match_mean": 256.5, "frac_ge16": 0.971}, "renamed": {"match_mean": 4.23, "frac_ge16": 0.046}, "renamed_rot": {"match_mean": 4.07, "frac_ge16": 0.042}}}
+{"verifier": "verifier", "step": 0, "loss": 2.2559, "gate": 0.2517}
+{"verifier": "verifier", "step": 100, "loss": 2.0498, "gate": 0.0573}
+{"verifier": "verifier", "step": 200, "loss": 1.5815, "gate": 0.0959}
+{"verifier": "no_meta", "step": 0, "loss": 2.2566, "gate": 0.1729}
+{"verifier": "no_meta", "step": 100, "loss": 2.0593, "gate": 0.0928}
+{"verifier": "no_meta", "step": 200, "loss": 1.6409, "gate": 0.0483}
+{"cond": "dup", "arm": "none", "ppl": 2.72}
+{"cond": "dup", "arm": "verifier", "ppl": 5.82, "gate_renamed_half": 0.1285}
+{"cond": "dup", "arm": "no_meta", "ppl": 5.41, "gate_renamed_half": 0.1121}
+{"cond": "renamed", "arm": "none", "ppl": 116.69}
+{"cond": "renamed", "arm": "verifier", "ppl": 106.67, "gate_renamed_half": 0.1408}
+{"cond": "renamed", "arm": "no_meta", "ppl": 125.13, "gate_renamed_half": 0.1103}
+{"cond": "renamed_rot", "arm": "none", "ppl": 115.14}
+{"cond": "renamed_rot", "arm": "verifier", "ppl": 112.43, "gate_renamed_half": 0.1382}
+{"cond": "renamed_rot", "arm": "no_meta", "ppl": 127.64, "gate_renamed_half": 0.1109}
+{"done": true}

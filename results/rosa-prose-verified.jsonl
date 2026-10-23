@@ -1,0 +1,16 @@
+{"book": "pg2701.txt", "bytes": 1276315, "alpha_frac": 0.955, "words_in_first_50k": 7865, "sample": "ctions\r whatsoever. You may copy it, give it away or re-use it under the terms\r of the Project Gutenberg License include"}
+{"book": "pg1342.txt", "bytes": 772386, "alpha_frac": 0.958, "words_in_first_50k": 7315, "sample": "s\r whatsoever. You may copy it, give it away or re-use it under the terms\r of the Project Gutenberg License included wit"}
+{"book": "pg1661.txt", "bytes": 607606, "alpha_frac": 0.957, "words_in_first_50k": 8485, "sample": "no restrictions\r whatsoever. You may copy it, give it away or re-use it under the terms\r of the Project Gutenberg Licens"}
+{"book": "pg84.txt", "bytes": 448885, "alpha_frac": 0.977, "words_in_first_50k": 8221, "sample": "lmost no restrictions\r whatsoever. You may copy it, give it away or re-use it under the terms\r of the Project Gutenberg "}
+{"book": "pg98.txt", "bytes": 807197, "alpha_frac": 0.96, "words_in_first_50k": 8456, "sample": "ns\r whatsoever. You may copy it, give it away or re-use it under the terms\r of the Project Gutenberg License included wi"}
+{"books_accepted": 5}
+{"chunks": 905, "decoded_sample": "The Project Gutenberg eBook of Moby Dick; Or, The Whale\r\n    \r\nThis eBook is for the use of anyone anywhere in the United States and\r\nmost other parts of the world at no cost and with"}
+{"match_len_probe": {"mean": 0.78, "max": 11, "frac_ge16": 0.0}}
+{"sidecar": "real", "step": 0, "loss": 6.0489}
+{"sidecar": "real", "step": 150, "loss": 3.8079}
+{"sidecar": "scrambled", "step": 0, "loss": 6.0883}
+{"sidecar": "scrambled", "step": 150, "loss": 3.8674}
+{"corpus": "prose_verified", "arm": "none", "in": {"ppl": 187.955, "n": 22260}, "out": {"ppl": 1279.813, "n": 1143}, "out_short": {"ppl": 1279.813, "n": 1143}}
+{"corpus": "prose_verified", "arm": "real", "in": {"ppl": 35.043, "n": 22260}, "out": {"ppl": 59.029, "n": 1143}, "out_short": {"ppl": 59.029, "n": 1143}}
+{"corpus": "prose_verified", "arm": "scrambled", "in": {"ppl": 36.71, "n": 22260}, "out": {"ppl": 65.139, "n": 1143}, "out_short": {"ppl": 65.139, "n": 1143}}
+{"done": true}

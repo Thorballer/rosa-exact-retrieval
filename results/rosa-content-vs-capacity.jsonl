@@ -1,0 +1,8 @@
+{"stage": "load", "ver": "v4-lmhead-aux", "model": "Qwen/Qwen2.5-0.5B", "layers": [6, 12, 18]}
+{"memory_per_token": {"kv_fp16": 12288, "index_est": 60, "ratio": 204.8}, "sidecar_params_per_layer": 806401, "aux_params": 0, "note": "aux reuses lm_head"}
+{"pairs": 80}
+{"mode": "none", "cond": "dup", "ppl": 13.58}
+{"mode": "none", "cond": "renamed", "ppl": 23.049}
+{"mode": "none", "cond": "renamed_rot", "ppl": 26.964}
+{"mode": "none", "cond": "in_dist", "ppl": 19.033}
+{"fatal": "RuntimeError('expected mat1 and mat2 to have the same dtype, but got: float != c10::Half')", "trace": "h/nn/modules/module.py\", line 1790, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/kaggle/src/script.py\", line 81, in forward\n    self.last = {\"aux\": self.lm_head(mixed) if self.lm_head is not None else None}\n                        ~~~~~~~~~~~~^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/linear.py\", line 134, in forward\n    return F.linear(input, self.weight, self.bias)\n           ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: expected mat1 and mat2 to have the same dtype, but got: float != c10::Half\n"}

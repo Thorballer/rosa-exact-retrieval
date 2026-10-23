@@ -1,0 +1,24 @@
+{"stage": "load", "model": "Qwen/Qwen2.5-0.5B", "device": "cuda"}
+{"corpus": "code", "chunks": 2522}
+{"corpus": "prose", "chunks": 702}
+{"corpus": "code", "sidecar": "real", "step": 0, "loss": 3.3936, "gate": 0.1539}
+{"corpus": "code", "sidecar": "real", "step": 150, "loss": 2.1818, "gate": 0.0601}
+{"corpus": "code", "sidecar": "real", "step": 300, "loss": 1.5488, "gate": 0.0584}
+{"corpus": "code", "sidecar": "scrambled", "step": 0, "loss": 3.3579, "gate": 0.107}
+{"corpus": "code", "sidecar": "scrambled", "step": 150, "loss": 2.1884, "gate": 0.0367}
+{"corpus": "code", "sidecar": "scrambled", "step": 300, "loss": 1.5855, "gate": 0.0201}
+{"corpus": "code", "sidecar": "const", "step": 0, "loss": 3.3836, "gate": 0.0874}
+{"corpus": "code", "sidecar": "const", "step": 150, "loss": 2.1492, "gate": 0.0537}
+{"corpus": "code", "sidecar": "const", "step": 300, "loss": 1.556, "gate": 0.0325}
+{"corpus": "code", "arm": "none", "in": {"ppl": 15.095, "n": 25765}, "out": {"ppl": 136.024, "n": 1373}, "out_short": {"ppl": 143.664, "n": 1341}, "out_long": {"ppl": 13.777, "n": 32}}
+{"corpus": "code", "arm": "real+real", "in": {"ppl": 6.608, "n": 25765}, "out": {"ppl": 16.863, "n": 1373}, "out_short": {"ppl": 17.517, "n": 1341}, "out_long": {"ppl": 3.422, "n": 32}}
+{"corpus": "code", "arm": "scrambled+scrambled", "in": {"ppl": 7.012, "n": 25765}, "out": {"ppl": 23.807, "n": 1373}, "out_short": {"ppl": 24.61, "n": 1341}, "out_long": {"ppl": 5.922, "n": 32}}
+{"corpus": "code", "arm": "const+const", "in": {"ppl": 6.849, "n": 25765}, "out": {"ppl": 21.552, "n": 1373}, "out_short": {"ppl": 22.254, "n": 1341}, "out_long": {"ppl": 5.626, "n": 32}}
+{"corpus": "prose", "sidecar": "real", "step": 0, "loss": 4.9618, "gate": 0.1561}
+{"corpus": "prose", "sidecar": "real", "step": 150, "loss": 3.4799, "gate": 0.057}
+{"corpus": "prose", "sidecar": "scrambled", "step": 0, "loss": 4.8909, "gate": 0.1682}
+{"corpus": "prose", "sidecar": "scrambled", "step": 150, "loss": 3.5005, "gate": 0.0448}
+{"corpus": "prose", "arm": "none", "in": {"ppl": 367.69, "n": 20420}, "out": {"ppl": 1332.86, "n": 1141}, "out_short": {"ppl": 1332.86, "n": 1141}}
+{"corpus": "prose", "arm": "real+real", "in": {"ppl": 56.656, "n": 20420}, "out": {"ppl": 60.6, "n": 1141}, "out_short": {"ppl": 60.6, "n": 1141}}
+{"corpus": "prose", "arm": "scrambled+scrambled", "in": {"ppl": 57.942, "n": 20420}, "out": {"ppl": 60.07, "n": 1141}, "out_short": {"ppl": 60.07, "n": 1141}}
+{"done": true}
