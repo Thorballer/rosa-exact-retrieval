@@ -50,3 +50,5 @@
 {"shape":"const","n":64000,"variant_name":"majority","us_per_token":null,"note":">8s"}
 {"shape":"const","n":64000,"variant_name":"vote","us_per_token":null,"note":">8s"}
 {"shape":"const","n":64000,"variant_name":"seed2","us_per_token":null,"note":">8s"}
+{"shape":"const","n":64000,"variant_name":"seed4","us_per_token":null,"note":">8s"}
+{"shape":"const","n":64000,"variant_name":"gate8","us_per_token":null,"note":">8s"}
