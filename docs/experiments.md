@@ -260,3 +260,29 @@ reusing the model's own `lm_head` (zero added parameters), each arm evaluated th
 (`expected mat1 and mat2 to have the same dtype, but got: float != c10::Half`). The `none` baselines
 it logged (13.58 / 23.05 / 26.96 / 19.033) match every other run, so the harness was correct; the
 aux variant simply never produced a number.
+
+### 26. `rosa-vs-full-attention` (+ `-speed`) — valid, and it is the fair fight
+Not a frozen-sidecar or windowed-attention test: the C suffix index against **full** causal attention,
+same tokens, same positions, one common mask. `dup` = `[A][F][A]`, distance 1,024 / 3,072 / 16,896;
+`dup-ctl` = the same local context with the earlier copy deleted; `plain` = no construction. Arms:
+`rosa`, `full` (Qwen2.5-0.5B, 32k context), `win512` (same model, additive window mask).
+
+Result (T4 fp16, 16 seq/corpus/cell, 8,176 positions): `dup` at 1,024 — rosa **100.0%**, full
+**98.8%** (code), 99.0% (prose), win512 53.4% / 25.7%. At 3,072: 100.0 / 98.6 / 98.9. At 16,896 the
+index is still 100.0% and the model arm cannot run (one attention matrix is 8.5 GiB/sequence on a
+14.5 GiB card). Controls: `dup-ctl` rosa 34.9% (code) / 7.5% (prose), full 70.7% / 40.2%; `plain`
+rosa 37.7% / 8.5%, full 73.9% / 42.5%. So retrieval-specific gain is rosa +58–93 pts against
+attention +25–59 pts: the index wins on *how much* of its accuracy is retrieval, ties on accuracy, and
+loses badly wherever the text does not literally repeat.
+
+Cost: ROSA 0.39–0.73 µs/token on the T4 box and 0.08–0.24 µs/token on the laptop, versus 140 µs/token
+(fp16, T=1k) to 752 µs/token (T=8k) for a forward pass; KV cache 12,288 B/token fp16 against 146–178
+B/token of index. Per-token index cost tracks the fire rate, not n; memory is O(n) in the context and
+stays flat in match length.
+
+Three Kaggle OOMs before the harness was right (32×1536×151,936 fp32 logits = 29 GiB; 4-sequence chunk
+at T=17,408 = 21 GiB; SDPA materialising T×T). The fix that stays: project only the scored hidden
+states through `lm_head`. One local off-by-one (`match_len` dropping the current token, `src_is_true`
+comparing to `i-dist` instead of `i-dist+1`) is corrected by `repost.py`, which re-derives the masks
+and asserts that every stored prediction still equals the token at its own source. Local CPU run and
+full T4 run both shipped.

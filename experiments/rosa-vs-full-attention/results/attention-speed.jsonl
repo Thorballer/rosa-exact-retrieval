@@ -1,0 +1,12 @@
+{"kind": "prefill", "T": 128, "seconds": 0.7756210539955646, "ms_per_token": 6.059539484340348, "kv_bytes_per_token": 24576.0, "kv_bytes_total": 3145728}
+{"kind": "prefill", "T": 256, "seconds": 1.4594255429692566, "ms_per_token": 5.700881027223659, "kv_bytes_per_token": 24576.0, "kv_bytes_total": 6291456}
+{"kind": "prefill", "T": 512, "seconds": 2.9037414639024064, "ms_per_token": 5.6713700466843875, "kv_bytes_per_token": 24576.0, "kv_bytes_total": 12582912}
+{"kind": "prefill", "T": 768, "seconds": 4.1365421110531315, "ms_per_token": 5.386122540433765, "kv_bytes_per_token": 24576.0, "kv_bytes_total": 18874368}
+{"kind": "prefill", "T": 1024, "seconds": 5.399560951977037, "ms_per_token": 5.273008742165075, "kv_bytes_per_token": 24576.0, "kv_bytes_total": 25165824}
+{"kind": "prefill", "T": 1536, "seconds": 7.883282172027975, "ms_per_token": 5.132345164080713, "kv_bytes_per_token": 24576.0, "kv_bytes_total": 37748736}
+{"kind": "prefill", "T": 2048, "seconds": 11.661413772962987, "ms_per_token": 5.694049693829584, "kv_bytes_per_token": 24576.0, "kv_bytes_total": 50331648}
+{"kind": "prefill", "T": 3072, "seconds": 18.506394830998033, "ms_per_token": 6.024217067382172, "kv_bytes_per_token": 24576.0, "kv_bytes_total": 75497472}
+{"kind": "decode", "T": 512, "seconds": 2.369879088946618, "ms_per_token": 148.11744305916363}
+{"kind": "decode", "T": 1024, "seconds": 2.733261580928229, "ms_per_token": 170.8288488080143}
+{"kind": "decode", "T": 2048, "seconds": 3.3878035120433196, "ms_per_token": 211.73771950270748}
+{"kind": "model", "model": "Qwen/Qwen2.5-0.5B", "params": 494032768, "layers": 24, "kv_heads": 2, "head_dim": 64, "dtype": "float32", "device": "cpu", "threads": 6, "context_window": 32768}

@@ -1,0 +1,30 @@
+{"exp": "env", "torch": "2.11.0+cu128", "device": "cuda", "gpu": "Tesla T4"}
+{"exp": "corpus", "corpus": "code", "tokens": 225197}
+{"exp": "speed", "arm": "attention", "kind": "prefill", "T": 512, "device": "cuda", "dtype": "torch.float16", "seconds": 0.07416404600002124, "ms_per_token": 0.1448516523437915, "kv_bytes_per_token": 12288.0, "kv_bytes_total": 6291456}
+{"exp": "speed", "arm": "attention", "kind": "prefill", "T": 1024, "device": "cuda", "dtype": "torch.float16", "seconds": 0.1436798970000268, "ms_per_token": 0.14031239941408868, "kv_bytes_per_token": 12288.0, "kv_bytes_total": 12582912}
+{"exp": "speed", "arm": "attention", "kind": "prefill", "T": 2048, "device": "cuda", "dtype": "torch.float16", "seconds": 0.4398622010000395, "ms_per_token": 0.21477646533205053, "kv_bytes_per_token": 12288.0, "kv_bytes_total": 25165824}
+{"exp": "speed", "arm": "attention", "kind": "prefill", "T": 4096, "device": "cuda", "dtype": "torch.float16", "seconds": 1.5231211910000297, "ms_per_token": 0.37185575952149164, "kv_bytes_per_token": 12288.0, "kv_bytes_total": 50331648}
+{"exp": "speed", "arm": "attention", "kind": "prefill", "T": 8192, "device": "cuda", "dtype": "torch.float16", "seconds": 6.161607623000009, "ms_per_token": 0.7521493680419933, "kv_bytes_per_token": 12288.0, "kv_bytes_total": 100663296}
+{"exp": "speed", "arm": "attention", "kind": "decode", "T": 1024, "device": "cuda", "dtype": "torch.float16", "ms_per_token": 35.64514021875098}
+{"exp": "speed", "arm": "attention", "kind": "decode", "T": 4096, "device": "cuda", "dtype": "torch.float16", "ms_per_token": 27.36624831250012}
+{"exp": "speed", "arm": "attention-core", "kind": "sdpa_1_query", "T": 1024, "layers": 24, "us_per_layer": 215.91779999994287, "us_per_token_all_layers": 5182.027199998629, "device": "cuda", "kv_bytes_per_token": 12288}
+{"exp": "speed", "arm": "attention-core", "kind": "sdpa_1_query", "T": 4096, "layers": 24, "us_per_layer": 566.5490500007309, "us_per_token_all_layers": 13597.17720001754, "device": "cuda", "kv_bytes_per_token": 12288}
+{"exp": "speed", "arm": "attention-core", "kind": "sdpa_1_query", "T": 16384, "layers": 24, "us_per_layer": 1860.0425999977688, "us_per_token_all_layers": 44641.02239994645, "device": "cuda", "kv_bytes_per_token": 12288}
+{"exp": "speed", "arm": "attention-core", "kind": "sdpa_1_query", "T": 32768, "layers": 24, "us_per_layer": 3648.333000001003, "us_per_token_all_layers": 87559.99200002407, "device": "cuda", "kv_bytes_per_token": 12288}
+{"exp": "speed", "arm": "rosa", "kind": "build_and_query", "shape": "random", "n": 4000, "seconds": 0.0020882970000002388, "us_per_token": 0.5220742500000597, "device": "cpu"}
+{"exp": "speed", "arm": "rosa", "kind": "build_and_query", "shape": "random", "n": 16000, "seconds": 0.0072216990000129044, "us_per_token": 0.4513561875008065, "device": "cpu"}
+{"exp": "speed", "arm": "rosa", "kind": "build_and_query", "shape": "random", "n": 64000, "seconds": 0.03331013399997573, "us_per_token": 0.5204708437496208, "device": "cpu"}
+{"exp": "speed", "arm": "rosa", "kind": "build_and_query", "shape": "random", "n": 256000, "seconds": 0.15861925899997686, "us_per_token": 0.6196064804686596, "device": "cpu"}
+{"exp": "speed", "arm": "rosa", "kind": "build_and_query", "shape": "random", "n": 1000000, "seconds": 0.7340444959999672, "us_per_token": 0.7340444959999672, "device": "cpu"}
+{"exp": "speed", "arm": "rosa", "kind": "build_and_query", "shape": "dup", "n": 4000, "seconds": 0.0015456699999845114, "us_per_token": 0.38641749999612784, "device": "cpu"}
+{"exp": "speed", "arm": "rosa", "kind": "build_and_query", "shape": "dup", "n": 16000, "seconds": 0.006367009999962647, "us_per_token": 0.39793812499766545, "device": "cpu"}
+{"exp": "speed", "arm": "rosa", "kind": "build_and_query", "shape": "dup", "n": 64000, "seconds": 0.025315275000025395, "us_per_token": 0.3955511718753968, "device": "cpu"}
+{"exp": "speed", "arm": "rosa", "kind": "build_and_query", "shape": "dup", "n": 256000, "seconds": 0.12236668799999961, "us_per_token": 0.4779948749999985, "device": "cpu"}
+{"exp": "speed", "arm": "rosa", "kind": "build_and_query", "shape": "dup", "n": 1000000, "seconds": 0.5791399230000138, "us_per_token": 0.5791399230000138, "device": "cpu"}
+{"exp": "speed", "arm": "rosa", "kind": "build_and_query", "shape": "const", "n": 4000, "seconds": 0.0016081329999906302, "us_per_token": 0.40203324999765755, "device": "cpu"}
+{"exp": "speed", "arm": "rosa", "kind": "build_and_query", "shape": "const", "n": 16000, "seconds": 0.0062689130000421756, "us_per_token": 0.39180706250263597, "device": "cpu"}
+{"exp": "speed", "arm": "rosa", "kind": "build_and_query", "shape": "const", "n": 64000, "seconds": 0.025394565999988572, "us_per_token": 0.39679009374982144, "device": "cpu"}
+{"exp": "speed", "arm": "rosa", "kind": "build_and_query", "shape": "code", "n": 4000, "seconds": 0.001604160999988835, "us_per_token": 0.4010402499972088, "device": "cpu"}
+{"exp": "speed", "arm": "rosa", "kind": "build_and_query", "shape": "code", "n": 16000, "seconds": 0.006423045999952137, "us_per_token": 0.4014403749970086, "device": "cpu"}
+{"exp": "speed", "arm": "rosa", "kind": "build_and_query", "shape": "code", "n": 64000, "seconds": 0.028462942999965435, "us_per_token": 0.4447334843744599, "device": "cpu"}
+{"exp": "done"}

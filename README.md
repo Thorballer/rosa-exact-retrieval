@@ -104,6 +104,15 @@ successful — to mistake for the mechanism working.
 | `rosa-definitive-match-length` / `rosa-aux-and-multilayer` | accuracy levers without memory cost | 3-layer injection **1.12×** for 2.4M params; aux head confounded with 410M params |
 | `rosa-lora-vs-frozen` | does any of it survive fine-tuning? | fine-tuning dominates ~10:1; sidecar effect ±5% and **negative** with a live sidecar |
 
+## ROSA against full attention, directly
+
+`experiments/rosa-vs-full-attention/` puts the index and Qwen2.5-0.5B's full attention on the same
+token stream and scores the same positions. On verbatim repeats they tie at 1k–3k distance (100.0%
+vs 98.6–99.0%), and the index is still 100% at 16,896 where attention will not fit on a T4; on
+ordinary text attention wins 2–5× (code 73.9% vs 37.7%). Cost per token: 0.39–0.73 µs for the index
+against 140–752 µs for an fp16 forward pass on that T4 (350× to 1,900×), and ~150 bytes of state
+against 12,288 bytes of KV cache.
+
 ## Where it is categorically better — and why that is weaker than it sounds
 
 Synthetic associative recall: 512-token context, 8 key→value pairs, 8 query keys, 128-token
@@ -182,7 +191,7 @@ first-occurrence timestamp and removes the only quadratic cliff in the algorithm
 ## Layout
 
 ```
-kernels/<kaggle-slug>/       25 training/eval kernels, exactly as pushed
+kernels/<kaggle-slug>/       27 kernels, exactly as pushed
 results/<slug>[*].jsonl      raw JSONL output, one line per measurement
 code/c/                      C suffix automaton, brute-force check, benchmarks, logs
 code/scripts/monitor.sh      Kaggle poll/harvest wrapper used throughout
@@ -190,6 +199,7 @@ docs/findings.md             full findings, with the correction chain
 docs/experiments.md          kernel register: question, result, verdict, failure mode
 docs/methodology.md          the traps that cost a day
 docs/prior-art.md            taxonomy and external evidence
+experiments/rosa-vs-full-attention/  ROSA index vs full attention: recall and speed, head to head
 ```
 
 ## License
