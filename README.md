@@ -113,6 +113,14 @@ ordinary text attention wins 2–5× (code 73.9% vs 37.7%). Cost per token: 0.39
 against 140–752 µs for an fp16 forward pass on that T4 (350× to 1,900×), and ~150 bytes of state
 against 12,288 bytes of KV cache.
 
+The same experiment then tests five families of cheap upgrade against the two regimes where exact
+matching fails. Seeding 4-grams a few tokens back and extending with ≤2 mismatches takes the
+"an edit sits right before the query" case from **0.2–0.7% to 98.2–98.4%** (full attention: 67–72%);
+length-weighted voting over candidates takes ambiguous continuations from **2.5–4.1% to 95.1–98.3%**
+(attention: 12.6–14.1%). Both cost the property that made the index cheap: the candidate engine is
+O(candidates × match length), so on repetitive input it runs 5–500 µs/token where the automaton runs
+0.09–0.10 — the quadratic cliff, reintroduced.
+
 ## Where it is categorically better — and why that is weaker than it sounds
 
 Synthetic associative recall: 512-token context, 8 key→value pairs, 8 query keys, 128-token

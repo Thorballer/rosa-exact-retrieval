@@ -1,0 +1,52 @@
+{"shape": "random", "n": 4000, "variant": 0, "maxmis": 0, "gate": 0, "rc": 0, "seconds": 0.000357, "us_per_token": 0.089, "fire_rate": 0.2895, "maxrss_bytes": 880640, "variant_name": "base"}
+{"shape": "random", "n": 4000, "variant": 2, "maxmis": 0, "gate": 0, "rc": 0, "seconds": 0.000361, "us_per_token": 0.09, "fire_rate": 0.2895, "maxrss_bytes": 880640, "variant_name": "majority"}
+{"shape": "random", "n": 4000, "variant": 4, "maxmis": 0, "gate": 0, "rc": 0, "seconds": 0.000362, "us_per_token": 0.09, "fire_rate": 0.2895, "maxrss_bytes": 880640, "variant_name": "vote"}
+{"shape": "random", "n": 4000, "variant": 5, "maxmis": 2, "gate": 0, "rc": 0, "seconds": 0.000468, "us_per_token": 0.117, "fire_rate": 0.0, "maxrss_bytes": 880640, "variant_name": "seed2"}
+{"shape": "random", "n": 4000, "variant": 5, "maxmis": 4, "gate": 0, "rc": 0, "seconds": 0.000483, "us_per_token": 0.121, "fire_rate": 0.0, "maxrss_bytes": 884736, "variant_name": "seed4"}
+{"shape": "random", "n": 4000, "variant": 0, "maxmis": 0, "gate": 8, "rc": 0, "seconds": 0.000352, "us_per_token": 0.088, "fire_rate": 0.0, "maxrss_bytes": 880640, "variant_name": "gate8"}
+{"shape": "random", "n": 16000, "variant": 0, "maxmis": 0, "gate": 0, "rc": 0, "seconds": 0.001528, "us_per_token": 0.095, "fire_rate": 0.2901, "maxrss_bytes": 1814528, "variant_name": "base"}
+{"shape": "random", "n": 16000, "variant": 2, "maxmis": 0, "gate": 0, "rc": 0, "seconds": 0.001587, "us_per_token": 0.099, "fire_rate": 0.2901, "maxrss_bytes": 1814528, "variant_name": "majority"}
+{"shape": "random", "n": 16000, "variant": 4, "maxmis": 0, "gate": 0, "rc": 0, "seconds": 0.001535, "us_per_token": 0.096, "fire_rate": 0.2901, "maxrss_bytes": 1814528, "variant_name": "vote"}
+{"shape": "random", "n": 16000, "variant": 5, "maxmis": 2, "gate": 0, "rc": 0, "seconds": 0.001844, "us_per_token": 0.115, "fire_rate": 0.0, "maxrss_bytes": 1814528, "variant_name": "seed2"}
+{"shape": "random", "n": 16000, "variant": 5, "maxmis": 4, "gate": 0, "rc": 0, "seconds": 0.001975, "us_per_token": 0.123, "fire_rate": 0.0, "maxrss_bytes": 1814528, "variant_name": "seed4"}
+{"shape": "random", "n": 16000, "variant": 0, "maxmis": 0, "gate": 8, "rc": 0, "seconds": 0.001516, "us_per_token": 0.095, "fire_rate": 0.0, "maxrss_bytes": 1822720, "variant_name": "gate8"}
+{"shape": "random", "n": 64000, "variant": 0, "maxmis": 0, "gate": 0, "rc": 0, "seconds": 0.006106, "us_per_token": 0.095, "fire_rate": 0.2919, "maxrss_bytes": 5521408, "variant_name": "base"}
+{"shape": "random", "n": 64000, "variant": 2, "maxmis": 0, "gate": 0, "rc": 0, "seconds": 0.006283, "us_per_token": 0.098, "fire_rate": 0.2919, "maxrss_bytes": 5521408, "variant_name": "majority"}
+{"shape": "random", "n": 64000, "variant": 4, "maxmis": 0, "gate": 0, "rc": 0, "seconds": 0.006277, "us_per_token": 0.098, "fire_rate": 0.2919, "maxrss_bytes": 5521408, "variant_name": "vote"}
+{"shape": "random", "n": 64000, "variant": 5, "maxmis": 2, "gate": 0, "rc": 0, "seconds": 0.00797, "us_per_token": 0.125, "fire_rate": 0.0, "maxrss_bytes": 5521408, "variant_name": "seed2"}
+{"shape": "random", "n": 64000, "variant": 5, "maxmis": 4, "gate": 0, "rc": 0, "seconds": 0.008131, "us_per_token": 0.127, "fire_rate": 0.0, "maxrss_bytes": 5529600, "variant_name": "seed4"}
+{"shape": "random", "n": 64000, "variant": 0, "maxmis": 0, "gate": 8, "rc": 0, "seconds": 0.006237, "us_per_token": 0.097, "fire_rate": 0.0, "maxrss_bytes": 5521408, "variant_name": "gate8"}
+{"shape": "dup", "n": 4000, "variant": 0, "maxmis": 0, "gate": 0, "rc": 0, "seconds": 0.020474, "us_per_token": 5.119, "fire_rate": 0.765, "maxrss_bytes": 884736, "variant_name": "base"}
+{"shape": "dup", "n": 4000, "variant": 2, "maxmis": 0, "gate": 0, "rc": 0, "seconds": 0.020676, "us_per_token": 5.169, "fire_rate": 0.765, "maxrss_bytes": 884736, "variant_name": "majority"}
+{"shape": "dup", "n": 4000, "variant": 4, "maxmis": 0, "gate": 0, "rc": 0, "seconds": 0.019712, "us_per_token": 4.928, "fire_rate": 0.765, "maxrss_bytes": 884736, "variant_name": "vote"}
+{"shape": "dup", "n": 4000, "variant": 5, "maxmis": 2, "gate": 0, "rc": 0, "seconds": 0.051523, "us_per_token": 12.881, "fire_rate": 0.7432, "maxrss_bytes": 909312, "variant_name": "seed2"}
+{"shape": "dup", "n": 4000, "variant": 5, "maxmis": 4, "gate": 0, "rc": 0, "seconds": 0.051254, "us_per_token": 12.813, "fire_rate": 0.7432, "maxrss_bytes": 884736, "variant_name": "seed4"}
+{"shape": "dup", "n": 4000, "variant": 0, "maxmis": 0, "gate": 8, "rc": 0, "seconds": 0.020472, "us_per_token": 5.118, "fire_rate": 0.7422, "maxrss_bytes": 892928, "variant_name": "gate8"}
+{"shape": "dup", "n": 16000, "variant": 0, "maxmis": 0, "gate": 0, "rc": 0, "seconds": 1.875805, "us_per_token": 117.238, "fire_rate": 0.9371, "maxrss_bytes": 1818624, "variant_name": "base"}
+{"shape": "dup", "n": 16000, "variant": 2, "maxmis": 0, "gate": 0, "rc": 0, "seconds": 2.612049, "us_per_token": 163.253, "fire_rate": 0.9371, "maxrss_bytes": 1818624, "variant_name": "majority"}
+{"shape": "dup", "n": 16000, "variant": 4, "maxmis": 0, "gate": 0, "rc": 0, "seconds": 2.164712, "us_per_token": 135.294, "fire_rate": 0.9371, "maxrss_bytes": 1818624, "variant_name": "vote"}
+{"shape": "dup", "n": 16000, "variant": 5, "maxmis": 2, "gate": 0, "rc": 0, "seconds": 4.421777, "us_per_token": 276.361, "fire_rate": 0.9358, "maxrss_bytes": 1818624, "variant_name": "seed2"}
+{"shape": "dup", "n": 16000, "variant": 5, "maxmis": 4, "gate": 0, "rc": 0, "seconds": 6.122981, "us_per_token": 382.686, "fire_rate": 0.9358, "maxrss_bytes": 1826816, "variant_name": "seed4"}
+{"shape": "dup", "n": 16000, "variant": 0, "maxmis": 0, "gate": 8, "rc": 0, "seconds": 1.974758, "us_per_token": 123.422, "fire_rate": 0.9356, "maxrss_bytes": 1818624, "variant_name": "gate8"}
+{"shape":"dup","n":64000,"variant_name":"base","us_per_token":null,"note":">8s"}
+{"shape":"dup","n":64000,"variant_name":"majority","us_per_token":null,"note":">8s"}
+{"shape":"dup","n":64000,"variant_name":"vote","us_per_token":null,"note":">8s"}
+{"shape":"dup","n":64000,"variant_name":"seed2","us_per_token":null,"note":">8s"}
+{"shape":"dup","n":64000,"variant_name":"seed4","us_per_token":null,"note":">8s"}
+{"shape":"dup","n":64000,"variant_name":"gate8","us_per_token":null,"note":">8s"}
+{"shape": "const", "n": 4000, "variant": 0, "maxmis": 0, "gate": 0, "rc": 0, "seconds": 1.820566, "us_per_token": 455.141, "fire_rate": 0.9995, "maxrss_bytes": 876544, "variant_name": "base"}
+{"shape": "const", "n": 4000, "variant": 2, "maxmis": 0, "gate": 0, "rc": 0, "seconds": 1.162148, "us_per_token": 290.537, "fire_rate": 0.9995, "maxrss_bytes": 876544, "variant_name": "majority"}
+{"shape": "const", "n": 4000, "variant": 4, "maxmis": 0, "gate": 0, "rc": 0, "seconds": 1.93714, "us_per_token": 484.285, "fire_rate": 0.9995, "maxrss_bytes": 876544, "variant_name": "vote"}
+{"shape": "const", "n": 4000, "variant": 5, "maxmis": 2, "gate": 0, "rc": 0, "seconds": 4.588406, "us_per_token": 1147.102, "fire_rate": 0.999, "maxrss_bytes": 876544, "variant_name": "seed2"}
+{"shape": "const", "n": 4000, "variant": 5, "maxmis": 4, "gate": 0, "rc": 0, "seconds": 3.298302, "us_per_token": 824.576, "fire_rate": 0.999, "maxrss_bytes": 876544, "variant_name": "seed4"}
+{"shape": "const", "n": 4000, "variant": 0, "maxmis": 0, "gate": 8, "rc": 0, "seconds": 1.829209, "us_per_token": 457.302, "fire_rate": 0.998, "maxrss_bytes": 876544, "variant_name": "gate8"}
+{"shape":"const","n":16000,"variant_name":"base","us_per_token":null,"note":">8s"}
+{"shape":"const","n":16000,"variant_name":"majority","us_per_token":null,"note":">8s"}
+{"shape":"const","n":16000,"variant_name":"vote","us_per_token":null,"note":">8s"}
+{"shape":"const","n":16000,"variant_name":"seed2","us_per_token":null,"note":">8s"}
+{"shape":"const","n":16000,"variant_name":"seed4","us_per_token":null,"note":">8s"}
+{"shape":"const","n":16000,"variant_name":"gate8","us_per_token":null,"note":">8s"}
+{"shape":"const","n":64000,"variant_name":"base","us_per_token":null,"note":">8s"}
+{"shape":"const","n":64000,"variant_name":"majority","us_per_token":null,"note":">8s"}
+{"shape":"const","n":64000,"variant_name":"vote","us_per_token":null,"note":">8s"}
+{"shape":"const","n":64000,"variant_name":"seed2","us_per_token":null,"note":">8s"}

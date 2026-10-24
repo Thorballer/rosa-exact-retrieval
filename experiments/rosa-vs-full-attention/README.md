@@ -217,6 +217,79 @@ Caveats that belong in the same breath as those ratios:
   by an additive 4D mask (`j <= i and i - j < 512`) on the full sequence, which is what windowed
   attention actually is.
 
+## Improving recall at 1k–3k: what worked, and what it cost
+
+On clean copies there is no headroom — the index is at 99.8% at both distances. So the upgradable
+recall only exists where exact matching *fails*. Three such regimes were built, and five families of
+cheap upgrade tested against them (`upgrades.c`, `upgrades.py`, kernel
+`rosa-vs-full-attention-upgrades`). No training, no floats, same positions for every arm.
+
+| construction | what breaks | exact index | best upgrade |
+|---|---|---|---|
+| `edit2` / `edit5` | two 2- or 5-token edits, a third of the span away | 99.2–99.4% | **nothing** — exact matching already recovers past the edit |
+| `edit_near` | one token edited *immediately before* the query, every 8 positions | **0.2–0.7%** | **seed2/seed4: 98.2–98.4%** |
+| `ambig` | three prior occurrences, successors (a, a, b) | 2.5–4.1% (majority truth) | **vote: 95.1–98.3%** |
+
+Full attention, same corpus and positions:
+
+| construction | distance | exact index | best upgrade | full attention |
+|---|---|---|---|---|
+| `edit_near`, code | 1,024 | 0.7% | **98.2%** (seed2) | 71.7% |
+| `edit_near`, prose | 1,024 | 0.2% | **98.4%** (seed) | 67.9% |
+| `edit_near`, code | 3,072 | 0.7% | **98.3%** (seed2) | 66.9% |
+| `edit_near`, prose | 3,072 | 0.7% | **98.4%** (seed) | 66.5% |
+| `ambig`, code | — | 4.1% / 3.0% (maj/rec) | **95.1% / 0.4%** (vote) | 12.6% / 4.1% |
+| `ambig`, prose | — | 2.5% / 0.7% | **98.3% / 0.0%** (vote) | 14.1% / 1.6% |
+
+**Upgrade 1 — seed-and-extend.** A suffix-anchored index cannot find the source when the token
+immediately before the query is corrupted: every gram ending at the query contains the corruption,
+so there are no candidates at all (the index abstains, or fires on a 1-token match and is wrong).
+Anchoring 4-grams at offsets 0–3 *before* the query and extending with ≤2 mismatches recovers
+**98.2–98.4%**, 27–31 points ahead of full attention, which pays for its own fuzziness with a forward
+pass and still gets a third of these wrong.
+
+**Upgrade 2 — length-weighted voting.** When several prior occurrences disagree, "longest match wins"
+is not a tie: the tokens *preceding* each occurrence differ, so the longest suffix is decided by one
+extra matched token, and that token is the previous occurrence's successor. A weighted vote over all
+candidates (weight = match length, PPM-style) picks the majority continuation instead: **95.1–98.3%**
+where longest-match gets 2.5–4.1%, and 80+ points ahead of attention. It is a policy, not a truth:
+against the *most recent* continuation it scores 0.0–0.4%, where the base rule gets 0.7–3.0%.
+
+Both are close to free where they are not needed, and neither helps where the index already works:
+
+| | base | majority | vote | seed2 | seed4 | gate8 |
+|---|---|---|---|---|---|---|
+| `dup`, code, 1,024 | **99.8** | 99.7 | 99.4 | 99.4 | 99.4 | 98.6 |
+| `edit2`, code, 1,024 | **99.3** | 99.0 | 98.2 | 98.6 | 98.6 | 95.8 |
+| `edit5`, code, 1,024 | **99.2** | 99.0 | 98.1 | 97.4 | 95.0 | 95.8 |
+| `plain`, code (local run) | **12.4** | 12.8 | 12.8 | 2.9 | 0.8 | 0.5 (1% fire) |
+
+Abstention (`gate8`: fire only on ≥8-token matches) does what it says and nothing more: fire rate on
+plain code drops 54% → 1%, accuracy 12.4% → 0.5%. Precision without a reranker is not a win.
+
+### What the upgrades cost
+
+Microseconds per token, single core, C (`upgrades_bench.c`, one process per cell):
+
+| shape | n | base | majority | vote | seed2 | seed4 | gate8 | SAM, mode 1 |
+|---|---|---|---|---|---|---|---|---|
+| random (no repeats) | 4k | 0.09 | 0.09 | 0.09 | 0.12 | 0.12 | 0.09 | 0.09 |
+| | 16k | 0.10 | 0.10 | 0.10 | 0.12 | 0.12 | 0.10 | 0.11 |
+| | 64k | 0.10 | 0.10 | 0.10 | 0.13 | 0.13 | 0.10 | 0.15 |
+| duplicated span | 4k | 5.1 | 5.2 | 4.9 | 12.9 | 12.8 | 5.1 | 0.09 |
+| | 16k | 117 | 163 | 135 | 276 | 383 | 123 | 0.10 |
+| | 64k | >8 s | >8 s | >8 s | >8 s | >8 s | >8 s | 0.10 |
+| constant run | 4k | 455 | 291 | 484 | 1,147 | 825 | 457 | 0.08 |
+
+This is the finding that matters more than any accuracy number above. The suffix automaton is
+O(1) amortised per token *because* it returns one source per position from a suffix-link walk.
+A candidate engine enumerates up to 48 occurrences per chain and extends each one, so its cost is
+O(candidates × match length): on repetitive input — the exact input this mechanism exists for — it is
+**50–1,000× the sampler's cost, and quadratic in n**. The seed variants are 2–3× worse than the base
+candidate engine there. Neither upgrade preserves the property that made the index cheap, and a
+serious implementation would need the same first-occurrence trick (depth-limited walks, or a
+suffix-link tree) to get the recall without the cliff.
+
 ## Files
 
 | file | role |
@@ -226,8 +299,13 @@ Caveats that belong in the same breath as those ratios:
 | `attention_speed.py` | prefill / decode / KV on this machine |
 | `analyze.py` | markdown tables with bootstrap CIs, reads either results format |
 | `repost.py` | the corrected mask / source-position pass |
+| `upgrades.c`, `upgrades.py`, `upgrades_bench.c` | the recall upgrades: variants, constructions, cost |
+| `results/upgrades-main.jsonl` | local cross-check of every variant (3,068 rows) |
+| `results/kaggle-t4-upgrades.jsonl` | T4 run: variants and full attention, same positions (18 MB) |
+| `results/upgrades-cost.jsonl` | per-variant cost sweep |
 | `results/recall-main.fixed.jsonl.gz` | local CPU run, corrected (55,212 rows) |
 | `results/kaggle-t4-recall.jsonl.gz` | T4 run, both corpora, three distances (245,344 rows) |
 | `results/rosa-speed.jsonl`, `results/attention-speed.jsonl` | local speed cells |
 | `kernels/rosa-vs-full-attention/` | the T4 recall kernel |
 | `kernels/rosa-vs-full-attention-speed/` | the T4 speed kernel |
+| `kernels/rosa-vs-full-attention-upgrades/` | the T4 upgrade kernel: five constructions, 13 variants, both arms |
